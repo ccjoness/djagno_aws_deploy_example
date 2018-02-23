@@ -1,0 +1,105 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <!-- Page Content -->
+    <div class="container">
+
+        {#        <h1 class="my-4 text-center text-lg-left">Pizza Menu</h1>#}
+        {##}
+        {#        <div class="row text-center text-lg-left">#}
+        {##}
+        {#            <div class="col-lg-3 col-md-4 col-xs-6">#}
+        {#                <a href="#" class="d-block mb-4 h-100">#}
+        {#                    <img class="img-fluid img-thumbnail" src="http://placehold.it/400x300" alt="">#}
+        {#                </a>#}
+        {#            </div>#}
+        {#            <div class="col-lg-3 col-md-4 col-xs-6">#}
+        {#                <a href="#" class="d-block mb-4 h-100">#}
+        {#                    <img class="img-fluid img-thumbnail" src="http://placehold.it/400x300" alt="">#}
+        {#                </a>#}
+        {#            </div>#}
+        {#            <div class="col-lg-3 col-md-4 col-xs-6">#}
+        {#                <a href="#" class="d-block mb-4 h-100">#}
+        {#                    <img class="img-fluid img-thumbnail" src="http://placehold.it/400x300" alt="">#}
+        {#                </a>#}
+        {#            </div>#}
+        {#            <div class="col-lg-3 col-md-4 col-xs-6">#}
+        {#                <a href="#" class="d-block mb-4 h-100">#}
+        {#                    <img class="img-fluid img-thumbnail" src="http://placehold.it/400x300" alt="">#}
+        {#                </a>#}
+        {#            </div>#}
+        {#            <div class="col-lg-3 col-md-4 col-xs-6">#}
+        {#                <a href="#" class="d-block mb-4 h-100">#}
+        {#                    <img class="img-fluid img-thumbnail" src="http://placehold.it/400x300" alt="">#}
+        {#                </a>#}
+        {#            </div>#}
+        {#            <div class="col-lg-3 col-md-4 col-xs-6">#}
+        {#                <a href="#" class="d-block mb-4 h-100">#}
+        {#                    <img class="img-fluid img-thumbnail" src="http://placehold.it/400x300" alt="">#}
+        {#                </a>#}
+        {#            </div>#}
+        {#            <div class="col-lg-3 col-md-4 col-xs-6">#}
+        {#                <a href="#" class="d-block mb-4 h-100">#}
+        {#                    <img class="img-fluid img-thumbnail" src="http://placehold.it/400x300" alt="">#}
+        {#                </a>#}
+        {#            </div>#}
+        {#            <div class="col-lg-3 col-md-4 col-xs-6">#}
+        {#                <a href="#" class="d-block mb-4 h-100">#}
+        {#                    <img class="img-fluid img-thumbnail" src="http://placehold.it/400x300" alt="">#}
+        {#                </a>#}
+        {#            </div>#}
+        {#            <div class="col-lg-3 col-md-4 col-xs-6">#}
+        {#                <a href="#" class="d-block mb-4 h-100">#}
+        {#                    <img class="img-fluid img-thumbnail" src="http://placehold.it/400x300" alt="">#}
+        {#                </a>#}
+        {#            </div>#}
+        {#            <div class="col-lg-3 col-md-4 col-xs-6">#}
+        {#                <a href="#" class="d-block mb-4 h-100">#}
+        {#                    <img class="img-fluid img-thumbnail" src="http://placehold.it/400x300" alt="">#}
+        {#                </a>#}
+        {#            </div>#}
+        {#            <div class="col-lg-3 col-md-4 col-xs-6">#}
+        {#                <a href="#" class="d-block mb-4 h-100">#}
+        {#                    <img class="img-fluid img-thumbnail" src="http://placehold.it/400x300" alt="">#}
+        {#                </a>#}
+        {#            </div>#}
+        {#            <div class="col-lg-3 col-md-4 col-xs-6">#}
+        {#                <a href="#" class="d-block mb-4 h-100">#}
+        {#                    <img class="img-fluid img-thumbnail" src="http://placehold.it/400x300" alt="">#}
+        {#                </a>#}
+        {#            </div>#}
+        {#        </div>#}
+        {% for i in users %}
+            <div>
+                {{ i.username }}
+                {% for o in i.orders.all %}
+                    <table>
+                        <tr>
+                            <th>Size</th>
+                            <th>Toppings</th>
+                            <th>Price</th>
+                        </tr>
+                        {% for p in o.pizzas.all %}
+                            <tr>
+                                <td>
+                                    {{ p.size }}
+                                </td>
+                                <td>
+                                    {{ p.get_toppings_names }}
+                                </td>
+                                <td>
+                                    {{ p.price }}
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td>{{ o.total }}</td></tr>
+                    </table>
+                {% endfor %}
+            </div>
+        {% endfor %}
+    </div>
+    <!-- /.container -->
+{% endblock %}
