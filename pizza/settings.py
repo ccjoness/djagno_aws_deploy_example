@@ -118,3 +118,8 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 AUTH_USER_MODEL = 'pages.User'
+
+try:
+    from pizza.local_settings import *
+except:
+    pass
