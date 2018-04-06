@@ -1,5 +1,1 @@
-
-# Elastic Beanstalk Files
-.elasticbeanstalk/*
-!.elasticbeanstalk/*.cfg.yml
-!.elasticbeanstalk/*.global.yml
+*.pyc__pycache__/.idea/  # Elastic Beanstalk Files.elasticbeanstalk/*!.elasticbeanstalk/*.cfg.yml!.elasticbeanstalk/*.global.yml
